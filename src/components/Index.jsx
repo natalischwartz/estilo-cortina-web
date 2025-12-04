@@ -9,121 +9,121 @@ const Gallery = () => {
   const images = [
     {
       id: 1,
-      src: "src/assets/cortina-1.jpg",
+      src: "/cortina-1.jpg",
       alt: "cortina 1",
       description: "Cortina en Gasa."
     },
     {
       id: 2,
-      src: "src/assets/cortinado-doble.png",
+      src: "/cortinado-doble.png",
       alt: "cortina 2",
       description: "Doble cortinado en Black Out Melody y Gasa"
     },
     {
       id: 3,
-      src: "src/assets/1.png",
+      src: "/1.png",
       alt: "cortinado 1",
       description: "Doble cortinado en Black de lino Juliette y Gasa Portobello."
     },
     {
       id: 4,
-      src: "src/assets/cortinas-voileLino1032-1.jpg",
+      src: "/cortinas-voileLino1032-1.jpg",
       alt: "cortinado 2",
       description: "Cortinado en Voile de lino"
     },
     {
       id: 5,
-      src: "src/assets/cortinas-voileLino1032.jpg",
+      src: "/cortinas-voileLino1032.jpg",
       alt: "cortinado 3",
       description: "Cortinado en Voile de lino"
     },
     {
       id: 6,
-      src: "src/assets/cortinado-4.jpg",
+      src: "/cortinado-4.jpg",
       alt: "cortinado 4",
       description: "Doble cortinado con presillas ocultas en Black out Melody y Gasa Portobello. Modelo de cabezal: Pellizco de 2."
     },
     {
       id: 7,
-      src: "src/assets/jareta-barral.jpg",
+      src: "/jareta-barral.jpg",
       alt: "jareta para barral",
       description: "Jareta para pasar barral."
     },
     {
       id: 8,
-      src: "src/assets/mensulas-riel-2.jpg",
+      src: "/mensulas-riel-2.jpg",
       alt: "mensulas para riel",
       description: "Ménsulas para riel."
     },
     {
       id: 9,
-      src: "src/assets/pellizco-1-2.jpg",
+      src: "/pellizco-1-2.jpg",
       alt: "pellizco de 1 y 2",
       description: "Pellizco de 1 y 2."
     },
     {
       id: 10,
-      src: "src/assets/pellizco-3.jpg",
+      src: "/pellizco-3.jpg",
       alt: "pellizco de 3",
       description: "Pellizco de 3."
     },
     {
       id: 11,
-      src: "src/assets/presilla-oculta.jpg",
+      src: "/presilla-oculta.jpg",
       alt: "presillas ocultas",
       description: "Presillas ocultas para barral."
     },
     {
       id: 12,
-      src: "src/assets/cortinado-en-L.jpg",
+      src: "/cortinado-en-L.jpg",
       alt: "Cortinado en L",
       description: "Cortinado en L"
     },
     {
       id: 13,
-      src: "src/assets/Roller-screen-doble-altura.jpg",
+      src: "/Roller-screen-doble-altura.jpg",
       alt: "roller doble altura",
       description: "Roller screen doble altura"
     },
     {
       id: 14,
-      src: "src/assets/roller-blackout.jpg",
+      src: "/roller-blackout.jpg",
       alt: "roller blackout",
       description: "Cortina Roller Black out."
     },
     {
       id: 15,
-      src: "src/assets/roller-screen.jpg",
+      src: "/roller-screen.jpg",
       alt: "roller sunscreen",
       description: "Cortina Roller Sunscreen."
     },
     {
       id: 16,
-      src: "src/assets/tabla-chata.jpg",
+      src: "/tabla-chata.jpg",
       alt: "tabla-chata",
       description: "Tabla chata."
     },
     {
       id: 17,
-      src: "src/assets/cortinado-en-doble-barral.jpg",
+      src: "/cortinado-en-doble-barral.jpg",
       alt: "Cortinado en doble barral con argollas",
       description: "Cortinado en doble barral con argollas"
     },
     {
       id: 18,
-      src: "src/assets/arrastre-cortinas.jpg",
+      src: "/arrastre-cortinas.jpg",
       alt: "arrastre",
       description: "Arrastre de cortina."
     },
     {
       id: 19,
-      src: "src/assets/colores-blackout-roller.jpg",
+      src: "/colores-blackout-roller.jpg",
       alt: "colores roller blackout",
       description: "Colores Roller Black out."
     },
     {
       id: 20,
-      src: "src/assets/colores-roller-sunscreen.jpg",
+      src: "/colores-roller-sunscreen.jpg",
       alt: "colores roller sunscreen",
       description: "Colores Roller Sunscreen."
     }
