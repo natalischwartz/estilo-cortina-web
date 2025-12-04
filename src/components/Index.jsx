@@ -1,153 +1,135 @@
 import React, { useState, useEffect } from 'react';
-import '../index.css'; // Importaremos los estilos en un archivo CSS separado
+import '../index.css';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-
-
-   // Detectar si es móvil
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-    };
-  }, []);
-
 
   // Array de imágenes con sus datos
   const images = [
     {
       id: 1,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/cortina-1.jpg",
       alt: "cortina 1",
       description: "Cortina en Gasa."
     },
     {
       id: 2,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/cortinado-doble.png",
       alt: "cortina 2",
-      description: "Cortina en gasa. Modelo de cabezal: tabla encontrada."
+      description: "Doble cortinado en Black Out Melody y Gasa"
     },
     {
       id: 3,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/1.png",
       alt: "cortinado 1",
       description: "Doble cortinado en Black de lino Juliette y Gasa Portobello."
     },
     {
       id: 4,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/cortinas-voileLino1032-1.jpg",
       alt: "cortinado 2",
-      description: "Doble cortinado en Black out Melody y voile clásico."
+      description: "Cortinado en Voile de lino"
     },
     {
       id: 5,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/cortinas-voileLino1032.jpg",
       alt: "cortinado 3",
-      description: "Doble cortinado Riel en Black de lino Juliette y Gasa Portobello. Modelo de cabezal: Pellizco de 2 y 3."
+      description: "Cortinado en Voile de lino"
     },
     {
       id: 6,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/cortinado-4.jpg",
       alt: "cortinado 4",
       description: "Doble cortinado con presillas ocultas en Black out Melody y Gasa Portobello. Modelo de cabezal: Pellizco de 2."
     },
     {
       id: 7,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/jareta-barral.jpg",
       alt: "jareta para barral",
       description: "Jareta para pasar barral."
     },
     {
       id: 8,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/mensulas-riel-2.jpg",
       alt: "mensulas para riel",
       description: "Ménsulas para riel."
     },
     {
       id: 9,
-      src: "src/assets/cortina-en-gasa.jpg",
-      alt: "pellizco de 2",
-      description: "Pellizco de 2."
+      src: "src/assets/pellizco-1-2.jpg",
+      alt: "pellizco de 1 y 2",
+      description: "Pellizco de 1 y 2."
     },
     {
       id: 10,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/pellizco-3.jpg",
       alt: "pellizco de 3",
       description: "Pellizco de 3."
     },
     {
       id: 11,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/presilla-oculta.jpg",
       alt: "presillas ocultas",
       description: "Presillas ocultas para barral."
     },
     {
       id: 12,
-      src: "src/assets/cortina-en-gasa.jpg",
-      alt: "presillas ocultas",
-      description: "Presillas ocultas para barral."
+      src: "src/assets/cortinado-en-L.jpg",
+      alt: "Cortinado en L",
+      description: "Cortinado en L"
     },
     {
       id: 13,
-      src: "src/assets/cortina-en-gasa.jpg",
-      alt: "pellizco de 1",
-      description: "Pellizco de 1."
+      src: "src/assets/Roller-screen-doble-altura.jpg",
+      alt: "roller doble altura",
+      description: "Roller screen doble altura"
     },
     {
       id: 14,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/roller-blackout.jpg",
       alt: "roller blackout",
       description: "Cortina Roller Black out."
     },
     {
       id: 15,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/roller-screen.jpg",
       alt: "roller sunscreen",
       description: "Cortina Roller Sunscreen."
     },
     {
       id: 16,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/tabla-chata.jpg",
       alt: "tabla-chata",
       description: "Tabla chata."
     },
     {
       id: 17,
-      src: "src/assets/cortina-en-gasa.jpg",
-      alt: "tabla-encontrada",
-      description: "Tabla encontrada."
+      src: "src/assets/cortinado-en-doble-barral.jpg",
+      alt: "Cortinado en doble barral con argollas",
+      description: "Cortinado en doble barral con argollas"
     },
     {
       id: 18,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/arrastre-cortinas.jpg",
       alt: "arrastre",
       description: "Arrastre de cortina."
     },
     {
       id: 19,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/colores-blackout-roller.jpg",
       alt: "colores roller blackout",
       description: "Colores Roller Black out."
     },
     {
       id: 20,
-      src: "src/assets/cortina-en-gasa.jpg",
+      src: "src/assets/colores-roller-sunscreen.jpg",
       alt: "colores roller sunscreen",
       description: "Colores Roller Sunscreen."
     }
   ];
 
-    const openModal = (image) => {
+  const openModal = (image) => {
     setSelectedImage(image);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
@@ -176,67 +158,69 @@ const Gallery = () => {
 
   return (
     <>
-      <section className="grid-cortinas">
-        <h2 className="top-title text-center mb-4">Nuestros trabajos</h2>
+      <section className="grid-cortinas container">
+         {/* Agrega esto arriba del título */}
+        <div className="brand-logo-container">
+            <img 
+            src="src/assets/logo-estilo.png" 
+            alt="Logo Estilo Cortina" 
+            className="brand-logo"
+            />
+        </div>
+        <h2 className="top-title">Nuestros trabajos</h2>
         <div className="container py-4 section-works">
-          <div className="row g-3 justify-content-center">
+          <div className="row g-3">
             {images.map((image) => (
-              <div 
-                key={image.id} 
-                className="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"
-              >
-                <div className="gallery-item">
+              <div key={image.id} className="col-6 col-sm-4 col-md-3">
+                <div className="gallery-card">
                   <img 
                     src={image.src} 
                     alt={image.alt} 
-                    className="img-fluid img-gallery"
+                    className="img-gallery"
                     onClick={() => openModal(image)}
-                    loading="lazy"
                   />
-                  <p className="home__description mt-2 text-center small">
-                    {image.description}
-                  </p>
+                  <p className="home__description mt-2">{image.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
+         <a href="https://wa.me/5491161622602" target="_blank" className="wapp-logo fixed z-50 bottom-16 right-4 xl:w-16 xl:right-6">
+      <img className="w-12 xl:w-14 shadow-2xl drop-shadow-xl rounded-full transition-transform duration-200 hover:scale-110" src="data:image/svg+xml,%3csvg%20width='72'%20height='72'%20viewBox='0%200%2072%2072'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20filter='url(%23filter0_dd_283_865)'%3e%3crect%20x='4'%20y='3'%20width='64'%20height='64'%20rx='32'%20fill='white'/%3e%3cpath%20d='M12%2059L15.3908%2046.675C13.296%2043.0594%2012.1957%2038.9579%2012.2007%2034.784C12.2063%2021.6693%2022.9267%2011%2036.1005%2011C42.4934%2011.0032%2048.4938%2013.4799%2053.0066%2017.9758C57.5193%2022.4716%2060.0023%2028.4475%2060%2034.8031C59.9941%2047.9168%2049.2721%2058.588%2036.1002%2058.588H36.0898C32.0903%2058.5864%2028.1602%2057.5875%2024.6694%2055.6926L12%2059Z'%20fill='white'/%3e%3cpath%20d='M36.1103%2015.0176C25.1531%2015.0176%2016.2422%2023.8855%2016.2383%2034.7853C16.2329%2038.5073%2017.2857%2042.1549%2019.2751%2045.3062L19.7477%2046.0542L17.7406%2053.3488L25.2589%2051.3863L25.9849%2051.8144C29.034%2053.6159%2032.5301%2054.5686%2036.0954%2054.5705H36.1028C47.0516%2054.5705%2055.9625%2045.7017%2055.9667%2034.8012C55.975%2032.2031%2055.4655%2029.6292%2054.4677%2027.2284C53.47%2024.8277%2052.0038%2022.6478%2050.154%2020.815C48.3145%2018.9722%2046.1261%2017.511%2043.7155%2016.5158C41.3049%2015.5207%2038.7199%2015.0115%2036.1103%2015.0176Z'%20fill='url(%23paint0_linear_283_865)'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M30.1319%2024.8403C29.6843%2023.8504%2029.2133%2023.8304%2028.7881%2023.8132L27.6435%2023.7993C27.2452%2023.7993%2026.5982%2023.9481%2026.0512%2024.5431C25.5042%2025.1381%2023.9609%2026.5761%2023.9609%2029.501C23.9609%2032.4259%2026.1009%2035.2522%2026.3991%2035.6493C26.6972%2036.0464%2030.5301%2042.2399%2036.6001%2044.6228C41.6443%2046.6032%2042.6707%2046.2093%2043.766%2046.1103C44.8613%2046.0114%2047.2991%2044.6723%2047.7964%2043.2841C48.2937%2041.8958%2048.294%2040.7065%2048.1449%2040.4578C47.9959%2040.2091%2047.5976%2040.0614%2047%2039.7639C46.4023%2039.4664%2043.4669%2038.0283%2042.9195%2037.8298C42.3722%2037.6312%2041.9743%2037.5326%2041.5757%2038.1276C41.1772%2038.7226%2040.0341%2040.061%2039.6856%2040.4578C39.3371%2040.8546%2038.9892%2040.9044%2038.3915%2040.6072C37.7938%2040.31%2035.8709%2039.682%2033.5893%2037.6568C31.8142%2036.081%2030.6159%2034.1349%2030.267%2033.5402C29.9182%2032.9456%2030.23%2032.6235%2030.5295%2032.3273C30.7975%2032.0608%2031.1265%2031.633%2031.4257%2031.286C31.7248%2030.939%2031.8233%2030.691%2032.0221%2030.2949C32.2208%2029.8988%2032.1218%2029.5508%2031.9724%2029.2536C31.8229%2028.9564%2030.6627%2026.016%2030.1319%2024.8403Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cfilter%20id='filter0_dd_283_865'%20x='0'%20y='0'%20width='72'%20height='72'%20filterUnits='userSpaceOnUse'%20color-interpolation-filters='sRGB'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'/%3e%3cfeOffset%20dy='1'/%3e%3cfeGaussianBlur%20stdDeviation='2'/%3e%3cfeComposite%20in2='hardAlpha'%20operator='out'/%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.0470588%200%200%200%200%200.0470588%200%200%200%200%200.0509804%200%200%200%200.05%200'/%3e%3cfeBlend%20mode='normal'%20in2='BackgroundImageFix'%20result='effect1_dropShadow_283_865'/%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'/%3e%3cfeOffset%20dy='1'/%3e%3cfeGaussianBlur%20stdDeviation='2'/%3e%3cfeComposite%20in2='hardAlpha'%20operator='out'/%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.0470588%200%200%200%200%200.0470588%200%200%200%200%200.0509804%200%200%200%200.1%200'/%3e%3cfeBlend%20mode='normal'%20in2='effect1_dropShadow_283_865'%20result='effect2_dropShadow_283_865'/%3e%3cfeBlend%20mode='normal'%20in='SourceGraphic'%20in2='effect2_dropShadow_283_865'%20result='shape'/%3e%3c/filter%3e%3clinearGradient%20id='paint0_linear_283_865'%20x1='35.6981'%20y1='17.3912'%20x2='35.8977'%20y2='51.1916'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%2357D163'/%3e%3cstop%20offset='1'%20stop-color='%2323B33A'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e" alt="Logo Whatsapp" title="Abrir chat de WhatsApp"/>
+      </a>
       </section>
 
-      {/* Modal para imagen ampliada */}
+      {/* Modal para imagen ampliada - TAMAÑO CONTROLADO */}
       {isModalOpen && selectedImage && (
         <div 
-          className="modal-imagen"
-          onClick={(e) => {
-            if (e.target.className === 'modal-imagen' || e.target.className === 'modal-backdrop') {
-              closeModal();
-            }
-          }}
+          className="modal-overlay"
+          onClick={closeModal}
         >
-          <div className="modal-backdrop"></div>
-          <div className="modal-content-wrapper">
-            <span 
-              className="modal-close-btn"
-              onClick={closeModal}
-              aria-label="Cerrar modal"
-            >
-              &times;
-            </span>
-            <div className="modal-image-container">
+          <div 
+            className="modal-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-header">
+              <button 
+                className="modal-close-btn"
+                onClick={closeModal}
+                aria-label="Cerrar"
+              >
+                &times;
+              </button>
+            </div>
+            
+            <div className="modal-body">
               <img 
                 src={selectedImage.src} 
                 alt={selectedImage.alt}
                 className="modal-image"
               />
             </div>
-            <div className="modal-description">
-              <p>{selectedImage.description}</p>
+            
+            <div className="modal-footer">
+              <p className="modal-description">{selectedImage.description}</p>
             </div>
-            {isMobile && (
-              <div className="modal-tap-hint">
-                <small>Toca fuera de la imagen para cerrar</small>
-              </div>
-            )}
           </div>
         </div>
       )}
