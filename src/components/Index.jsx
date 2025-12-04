@@ -5,129 +5,156 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [filter, setFilter] = useState('todas'); // Estado para el filtro activo
+
   // Array de imágenes con sus datos
   const images = [
     {
       id: 1,
       src: "/cortina-1.jpg",
       alt: "cortina 1",
-      description: "Cortina en Gasa."
+      description: "Cortina en Gasa.",
+      category:"cortina tradicional"
     },
     {
       id: 2,
       src: "/cortinado-doble.png",
       alt: "cortina 2",
-      description: "Doble cortinado en Black Out Melody y Gasa"
+      description: "Doble cortinado en Black Out Melody y Gasa",
+      category:"doble cortinado"
     },
     {
       id: 3,
       src: "/1.png",
       alt: "cortinado 1",
-      description: "Doble cortinado en Black de lino Juliette y Gasa Portobello."
+      description: "Doble cortinado en Black de lino Juliette y Gasa Portobello.",
+      category:"doble cortinado"
     },
     {
       id: 4,
       src: "/cortinas-voileLino1032-1.jpg",
       alt: "cortinado 2",
-      description: "Cortinado en Voile de lino"
+      description: "Cortinado en Voile de lino",
+      category:"cortina tradicional"
     },
     {
       id: 5,
       src: "/cortinas-voileLino1032.jpg",
       alt: "cortinado 3",
-      description: "Cortinado en Voile de lino"
+      description: "Cortinado en Voile de lino",
+      category:"cortina tradicional"
     },
     {
       id: 6,
       src: "/cortinado-4.jpg",
       alt: "cortinado 4",
-      description: "Doble cortinado con presillas ocultas en Black out Melody y Gasa Portobello. Modelo de cabezal: Pellizco de 2."
+      description: "Doble cortinado con presillas ocultas en Black out Melody y Gasa Portobello. Modelo de cabezal: Pellizco de 2.",
+      category:"doble cortinado"
     },
     {
       id: 7,
       src: "/jareta-barral.jpg",
       alt: "jareta para barral",
-      description: "Jareta para pasar barral."
+      description: "Jareta para pasar barral.",
+      category:"cabezales"
     },
     {
       id: 8,
       src: "/mensulas-riel-2.jpg",
       alt: "mensulas para riel",
-      description: "Ménsulas para riel."
+      description: "Ménsulas para riel.",
+      category:"accesorios"
     },
     {
       id: 9,
       src: "/pellizco-1-2.jpg",
       alt: "pellizco de 1 y 2",
-      description: "Pellizco de 1 y 2."
+      description: "Pellizco de 1 y 2.",
+      category:"cabezales"
     },
     {
       id: 10,
       src: "/pellizco-3.jpg",
       alt: "pellizco de 3",
-      description: "Pellizco de 3."
+      description: "Pellizco de 3.",
+      category:"cabezales"
     },
     {
       id: 11,
       src: "/presilla-oculta.jpg",
       alt: "presillas ocultas",
-      description: "Presillas ocultas para barral."
+      description: "Presillas ocultas para barral.",
+      category:"cabezales"
     },
     {
       id: 12,
       src: "/cortinado-en-L.jpg",
       alt: "Cortinado en L",
-      description: "Cortinado en L"
+      description: "Cortinado en L",
+      category:"cortina tradicional"
     },
     {
       id: 13,
       src: "/Roller-screen-doble-altura.jpg",
       alt: "roller doble altura",
-      description: "Roller screen doble altura"
+      description: "Roller screen doble altura",
+      category:"rollers"
     },
     {
       id: 14,
       src: "/roller-blackout.jpg",
       alt: "roller blackout",
-      description: "Cortina Roller Black out."
+      description: "Cortina Roller Black out.",
+      category:"rollers"
     },
     {
       id: 15,
       src: "/roller-screen.jpg",
       alt: "roller sunscreen",
-      description: "Cortina Roller Sunscreen."
+      description: "Cortina Roller Sunscreen.",
+      category:"rollers"
     },
     {
       id: 16,
       src: "/tabla-chata.jpg",
       alt: "tabla-chata",
-      description: "Tabla chata."
+      description: "Tabla chata.",
+      category:"cabezales"
     },
     {
       id: 17,
       src: "/cortinado-en-doble-barral.jpg",
       alt: "Cortinado en doble barral con argollas",
-      description: "Cortinado en doble barral con argollas"
+      description: "Cortinado en doble barral con argollas",
+      category:"doble cortinado"
     },
     {
       id: 18,
       src: "/arrastre-cortinas.jpg",
       alt: "arrastre",
-      description: "Arrastre de cortina."
+      description: "Arrastre de cortina.",
+      category:"detalles"
     },
     {
       id: 19,
       src: "/colores-blackout-roller.jpg",
       alt: "colores roller blackout",
-      description: "Colores Roller Black out."
+      description: "Colores Roller Black out.",
+      category:"rollers"
     },
     {
       id: 20,
       src: "/colores-roller-sunscreen.jpg",
       alt: "colores roller sunscreen",
-      description: "Colores Roller Sunscreen."
+      description: "Colores Roller Sunscreen.",
+      category:"rollers"
     }
   ];
+
+  // Filtrar imágenes según categoría seleccionada
+  const filteredImages = filter === 'todas' 
+    ? images 
+    : images.filter(img => img.category === filter);
 
   const openModal = (image) => {
     setSelectedImage(image);
@@ -167,10 +194,69 @@ const Gallery = () => {
             className="brand-logo"
             />
         </div>
+        <div className='services-description'>
+          <span>📏Toma de medidas • 🛠️Colocación</span>
+        </div>
         <h2 className="top-title">Nuestros trabajos</h2>
+
+
+          {/* Filtros */}
+        <div className="filters-container">
+          <div className="filters">
+            <button 
+              className={`filter-btn ${filter === 'todas' ? 'active' : ''}`}
+              onClick={() => setFilter('todas')}
+            >
+              Todas
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'cortina tradicionale' ? 'active' : ''}`}
+              onClick={() => setFilter('cortina tradicional')}
+            >
+              Cortinas Tradicionales
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'doble-cortinado' ? 'active' : ''}`}
+              onClick={() => setFilter('doble cortinado')}
+            >
+              Doble Cortinado
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'rollers' ? 'active' : ''}`}
+              onClick={() => setFilter('rollers')}
+            >
+              Rollers
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'cabezales' ? 'active' : ''}`}
+              onClick={() => setFilter('cabezales')}
+            >
+              Cabezales
+            </button>
+             <button 
+              className={`filter-btn ${filter === 'accesorios' ? 'active' : ''}`}
+              onClick={() => setFilter('accesorios')}
+            >
+              Accesorios
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'detalles' ? 'active' : ''}`}
+              onClick={() => setFilter('detalles')}
+            >
+              Detalles
+            </button>
+          </div>
+          
+          {/* Contador de resultados */}
+          <div className="filter-counter">
+            Mostrando {filteredImages.length} de {images.length} trabajos
+          </div>
+        </div>
+
+
         <div className="container py-4 section-works">
-          <div className="row g-5">
-            {images.map((image) => (
+          <div className="row g-5 gutterY-grid">
+            {filteredImages.map((image) => (
               <div key={image.id} className="col-6 col-sm-4 col-md-3">
                 <div className="gallery-card">
                   <img 
@@ -179,6 +265,7 @@ const Gallery = () => {
                     className="img-gallery"
                     onClick={() => openModal(image)}
                   />
+                  {/* <div className="image-category">{image.category}</div> */}
                   <p className="home__description mt-2">{image.description}</p>
                 </div>
               </div>
@@ -200,14 +287,14 @@ const Gallery = () => {
             className="modal-container"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="modal-header">
-              <button 
+             <button 
                 className="modal-close-btn"
                 onClick={closeModal}
                 aria-label="Cerrar"
               >
                 &times;
               </button>
+            <div className="modal-header">
             </div>
             
             <div className="modal-body">
