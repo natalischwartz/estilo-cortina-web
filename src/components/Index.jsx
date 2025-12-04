@@ -162,14 +162,14 @@ const Gallery = () => {
          {/* Agrega esto arriba del título */}
         <div className="brand-logo-container">
             <img 
-            src="src/assets/logo-estilo.png" 
+            src="/logo-estilo.png" 
             alt="Logo Estilo Cortina" 
             className="brand-logo"
             />
         </div>
         <h2 className="top-title">Nuestros trabajos</h2>
         <div className="container py-4 section-works">
-          <div className="row g-3">
+          <div className="row g-5">
             {images.map((image) => (
               <div key={image.id} className="col-6 col-sm-4 col-md-3">
                 <div className="gallery-card">
