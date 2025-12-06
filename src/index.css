@@ -59,15 +59,24 @@ body{
 .image-category {
   position: absolute;
   top: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.5);
+  right: 21px;
+ background: linear-gradient(135deg, 
+        rgba(10, 10, 10, 0.95) 0%,     /* Negro casi sólido */
+        rgba(20, 20, 20, 0.7) 30%,     /* Negro semitransparente */
+        rgba(30, 30, 30, 0.3) 70%,     /* Muy transparente */
+        rgba(40, 40, 40, 0) 95%       /* Completamente transparente */
+    );
   color: white;
   padding: 4px 10px;
   border-radius: 20px;
   font-size: 0.7rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 0.5px;
   z-index: 2;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Montserrat', 'Arial', sans-serif;
+    text-align: center;
+    font-weight: 700;
 }
 
 
@@ -119,6 +128,7 @@ body{
 .gallery-card {
   height:250px;
   /* displayflex; */
+  width:100%;
   flex-direction:column;
   margin-bottom: 2rem;
   transition: transform 0.3s ease;
@@ -147,7 +157,7 @@ body{
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  aspect-ratio: 4/3;
+  /* aspect-ratio: 4/3; */
 }
 
 /* .img-fluid{
@@ -292,8 +302,8 @@ body{
 .modal-description {
   color: #333;
   font-size: 1rem;
-  line-height: 1.5;
   padding:10px;
+  justify-content:center;
 }
 
 /* =============== ANIMACIONES =============== */
@@ -402,14 +412,13 @@ body{
   padding-left: 12px;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .img-gallery {
     height: 200px;
-  }
-}
+  } */
 
+/* 
 @media (max-width: 576px) {
   .img-gallery {
     height: 180px;
-  }
-}
+  } */
