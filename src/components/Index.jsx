@@ -185,19 +185,27 @@ const Gallery = () => {
 
   return (
     <>
-      <section className="grid-cortinas container">
-         {/* Agrega esto arriba del título */}
-        <div className="brand-logo-container">
-            <img 
-            src="/logo-estilo.png" 
+      <section id='inicio' className="grid-cortinas">
+         <header className='works-header'>
+            {/* <img 
+            src="https://res.cloudinary.com/dzkzrdbfu/image/upload/v1769555015/logo-estilo-sfdo_roxgqe.png" 
             alt="Logo Estilo Cortina" 
             className="brand-logo"
-            />
-        </div>
-        <div className='services-description'>
-          <span>📏Toma de medidas • 🛠️Colocación</span>
-        </div>
-        <h2 className="top-title">Nuestros trabajos</h2>
+            /> */}
+          
+          <div className='services-description'>
+            <span>📏Toma de medidas • 🛠️Colocación</span>
+          </div>
+
+          {/* <h2  className="top-title">Nuestros trabajos</h2> */}
+
+          <p className="works-subtitle">
+            Cortinas confeccionadas a medida, cuidando cada detalle del diseño y la instalación.
+         </p>
+        </header>
+        
+        
+        
 
 
           {/* Filtros */}
@@ -254,7 +262,7 @@ const Gallery = () => {
         </div>
 
 
-        <div className="container py-4 section-works">
+        <div id='trabajos' className="container py-4 section-works">
           <div className="row g-5 gutterY-grid">
             {filteredImages.map((image) => (
               <div key={image.id} className="col-6 col-sm-4 col-md-3">
@@ -309,7 +317,12 @@ const Gallery = () => {
               <p className="modal-description">{selectedImage.description}</p>
             </div>
           </div>
+
+           <footer id="contacto">
+          desarrollado por
+        </footer>
         </div>
+       
       )}
     </>
   );
