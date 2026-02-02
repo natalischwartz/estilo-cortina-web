@@ -10,35 +10,53 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: "-40% 0px -50% 0px",
-      }
-    );
+useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-15% 0px -70% 0px", // Detecta cuando la sección está en el tercio superior
+      threshold: 0
+    };
 
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
 
-    return () => observer.disconnect();
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const observeElements = () => {
+      sections.forEach(({ id }) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    };
+
+    // Reintentar un par de veces por si el DOM tarda
+    observeElements();
+    const timer = setTimeout(observeElements, 1000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
   }, []);
 
+  // Función para manejar el clic y forzar el estado activo
+  const handleNavLinkClick = (id) => {
+    setActiveSection(id);
+    setMenuOpen(false);
+  };
+
   return (
-    <nav className="">
+    <nav className="fixed-top">
       <div className="navbar-container">
 
-        <div className="navbar-logo">
+        {/* <div className="navbar-logo">
           <img className="brand-logo" src="/logo-estilo-sfdo.png" alt="Logo estilo cortina" />
-        </div>
+        </div> */}
 
         {/* Desktop */}
         <ul className="navbar-links">
@@ -47,6 +65,7 @@ const Navbar = () => {
               <a
                 href={`#${sec.id}`}
                 className={activeSection === sec.id ? "active" : ""}
+                onClick={() => handleNavLinkClick(sec.id)}
               >
                 {sec.label}
               </a>

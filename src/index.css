@@ -34,6 +34,16 @@ nav{
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
+/* Asegúrate de que las secciones tengan un tamaño mínimo para ser detectadas */
+section {
+  scroll-margin-top: 80px; /* Evita que el navbar tape el título al scrollear */
+}
+
+#inicio, #trabajos {
+  min-height: 50vh; /* Altura mínima de seguridad */
+  position: relative;
+}
+
 .navbar-container {
   /* max-width: 1200px; */
   /* margin: 0 auto; */
@@ -163,7 +173,7 @@ nav{
 
 .works-header{
    max-width: 700px;
-  margin: 0 auto 4rem;
+  margin: 3rem auto 4rem;
   text-align: center;
 }
 
@@ -352,17 +362,20 @@ nav{
 /* =============== MODAL TAMAÑO CONTROLADO =============== */
 .modal-overlay {
   position: fixed;
-  top: 0;
+  top: 67px;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.60);
   /* display: flex;
   align-items: center;
   justify-content: center; */
   z-index: 1000;
   padding: 20px;
   animation: fadeIn 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-container {
@@ -419,7 +432,7 @@ nav{
 
 .modal-image {
   max-width: 100%;
-  max-height: 75vh;
+  max-height: 70vh;
   width: auto;
   height: auto;
   object-fit: contain;

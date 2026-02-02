@@ -33,6 +33,7 @@ const Footer = () => {
 
         <div className="footer-copy">
           © {new Date().getFullYear()} Estilo Cortina. Todos los derechos reservados.
+          Desarrollado por Natali Schwartz
         </div>
 
       </div>
