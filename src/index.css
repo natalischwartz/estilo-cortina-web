@@ -4,9 +4,9 @@
   box-sizing:border-box;
 }
 
-* {
+/* * {
   outline: 1px solid red !important;
-}
+} */
 
 :root {
   --bg-main: #F6F5F2;      /* fondo claro cálido */
