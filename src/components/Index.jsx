@@ -12,16 +12,16 @@ const Gallery = () => {
     {
       id: 1,
       src: "/cortina-1.jpg",
-      alt: "cortina 1",
-      description: "Cortina en Gasa.",
+      alt: "cortina gasa bamboo",
+      description: "Cortina en Gasa Bamboo.",
       category:"Cortina tradicional"
     },
     {
       id: 2,
       src: "/cortinado-doble.png",
       alt: "cortina 2",
-      description: "Doble cortinado en Black Out Melody y Gasa",
-      category:"Doble cortinado"
+      description: "Cortina en Gasa de lino Portobello tabla encontrada",
+      category:"Cortina tradicional"
     },
     {
       id: 3,
@@ -89,16 +89,16 @@ const Gallery = () => {
     {
       id: 12,
       src: "/cortinado-en-L.jpg",
-      alt: "Cortinado en L",
-      description: "Cortinado en L",
+      alt: "Cortinas probador",
+      description: "Cortinas probador",
       category:"Cortina tradicional"
     },
     {
       id: 13,
       src: "/Roller-screen-doble-altura.jpg",
-      alt: "roller doble altura",
-      description: "Roller screen doble altura",
-      category:"Rollers"
+      alt: "Doble cortinado en Gasa Tusor y Blackout de lino Juliette Sand",
+      description: "Doble cortinado en Gasa Tusor y Blackout de lino Juliette Sand",
+      category:"Doble cortinado"
     },
     {
       id: 14,
@@ -124,8 +124,8 @@ const Gallery = () => {
     {
       id: 17,
       src: "/cortinado-en-doble-barral.jpg",
-      alt: "Cortinado en doble barral con argollas",
-      description: "Cortinado en doble barral con argollas",
+      alt: "Doble Cortinado en doble riel",
+      description: "Doble Cortinado en doble riel",
       category:"Doble cortinado"
     },
     {
